@@ -23,4 +23,8 @@ public class PlayerNameInput {
     public String getPlayerName() {
         return playerName;
     }
+    
+    public void setPlayerName(String in) {
+        playerName = in;
+    }
 }
