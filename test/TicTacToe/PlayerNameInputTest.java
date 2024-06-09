@@ -44,13 +44,54 @@ public class PlayerNameInputTest {
         System.out.println("getPlayerName");
         PlayerNameInput instance = new PlayerNameInput();
         String result = instance.getPlayerName();
-        //        assertEquals(expResult, result);
-
         // Check if result is a String
             assertTrue(result instanceof String);
-           
-        // Check if result is not null and not empty
-            assertNotNull(result);
-            assertFalse(result.isEmpty());
     }
+    
+
+    @Test
+    public void testGetPlayerNameWithEmptyInput() {
+        System.out.println("getPlayerNameWithEmptyInput");
+        PlayerNameInput instance = new PlayerNameInput();
+        instance.setPlayerName(""); // Assuming you have a setter method
+        String result = instance.getPlayerName();
+
+        // Check if result is an empty string
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testGetPlayerNameWithNullInput() {
+        System.out.println("getPlayerNameWithNullInput");
+        PlayerNameInput instance = new PlayerNameInput();
+        instance.setPlayerName(null); // Assuming you have a setter method
+        String result = instance.getPlayerName();
+
+        // Check if result is null
+        assertNull(result);
+    }
+    
+    @Test
+    public void testGetPlayerNameWithLongInput() {
+        System.out.println("getPlayerNameWithLongInput");
+        PlayerNameInput instance = new PlayerNameInput();
+        String longName = "ThisIsAVeryLongNameThatExceedsTheMaximumLength";
+        instance.setPlayerName(longName); // Assuming you have a setter method
+        String result = instance.getPlayerName();
+
+        // Check if result is equal to the input
+        assertEquals(longName, result);
+    }
+    
+    @Test
+    public void testGetPlayerNameWithSpaceInput() {
+        System.out.println("getPlayerNameWithSpaceInput");
+        PlayerNameInput instance = new PlayerNameInput();
+        instance.setPlayerName(" "); // Assuming you have a setter method
+        String result = instance.getPlayerName();
+
+        // Check if result is a space
+        assertTrue(result.trim().isEmpty());
+    }
+
 }
