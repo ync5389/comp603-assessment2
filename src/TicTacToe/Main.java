@@ -14,6 +14,11 @@ import javax.swing.SwingUtilities;
  * @author vincentyu
  */
 public class Main {
+
+    public boolean getVisibility(){
+        return true;
+    }
+    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             StartMenu menu = new StartMenu();
